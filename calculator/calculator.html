@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="short icon" type="image/img" href="C:\Users\atanu paul\Desktop\webpages\JS\calculator\calculate\code1.jpg">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Calculate me! - A calculator made my me</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link href="utils.css" rel="stylesheet" type="text/css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Ubuntu:wght@300&display=swap');
+html, body {
+  height: 100%;
+  width: 100%;
+  font-family: 'Roboto', sans-serif; 
+  
+}
+
+.text-center{
+  text-transform:capitalize;
+  letter-spacing: 2px;
+  /* border: 2px solid salmon;
+  background-color: rgba(250, 128, 114, 0.452); */
+}
+
+.button{
+  width: 66px;
+  padding: 15px;
+  margin: 0 3px;
+  background-color: white;
+  border:  2px solid rgba(255, 232, 28, 0.864);
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 1px 1px 20px rgba(0, 0, 200, 0.305);
+  font-size: 20px;
+}
+.operator{
+  background-color: rgba(250, 128, 114, 0.785);
+}
+.button:hover{
+  background-color: rgb(247, 206, 110);
+}
+
+.row{
+  margin: 8px 0;
+}
+.row input{
+    width: 355px;
+    font-size: 30px;
+    margin: 0;
+    padding: 10px 0px;
+    border: 2px solid salmon;
+    border-radius: 5px;
+    background-color: antiquewhite;
+    padding-right: 10px;
+    text-align: right;
+}
+/* //utils.css */
+.text-center{
+  text-align: center;
+}
+
+.bg-red{
+  background: rgb(255, 162, 0);
+}
+
+.mx-auto{
+  margin: auto;
+}
+
+.flex{
+  display:flex;
+} 
+.flex-col{
+  flex-direction: column;
+}
+
+.items-center{
+  align-items: center;
+}
+  </style>
+</head>
+
+<body>
+  
+  <div class="container flex flex-col items-center mx-auto m-w-20">
+    <h1 class="text-center">Welcome User</h1>
+    <div class="row">
+      <input class="input" value="0" type="text">
+      
+    </div>
+    <div class="row">
+          
+            
+    </div>
+    <div class="row">
+      <button class="button">7</button>
+      <button class="button">8</button>
+      <button class="button">9</button>
+      <button class="button operator">AC</button>
+      <button class="button operator">DEL</button>
+    </div>
+    <div class="row">
+      <button class="button">4</button>
+      <button class="button">5</button>
+      <button class="button">6</button>
+      <button class="button operator">*</button>
+      <button class="button operator">/</button>
+    </div>
+    <div class="row">
+      <button class="button">1</button>
+      <button class="button">2</button>
+      <button class="button">3</button>
+      <button class="button operator">+</button>
+      <button class="button operator">-</button>
+    </div>
+    <div class="row">
+      <button class="button">00</button>
+      <button class="button">0</button>
+      <button class="button">.</button>
+      <button class="button operator">=</button>
+      <button class="button operator">x!</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    var name;
+    name = prompt("What's your name? ");
+    alert("hello "+ name +"! Lets calculate something");
+
+    let user = document.querySelector('h1');
+    user.textContent = "Welcome "  + name;
+    // Todo: Make M+ M- and MC functional
+let string = "";
+let buttons = document.querySelectorAll('.button');
+Array.from(buttons).forEach((button)=>{
+  button.addEventListener('click', (e)=>{
+    if(e.target.innerHTML == '='){
+      string = eval(string);
+      document.querySelector('input').value = string;
+    }
+    else if(e.target.innerHTML == 'AC'){
+      string = ""
+      document.querySelector('input').value = string;
+    }
+    else if(e.target.innerHTML == 'DEL'){
+      string = string.slice(0,-1);
+      document.querySelector('input').value = string;
+    }
+    else if(e.target.innerHTML == 'x!'){
+      for(let i = string-1; i >= 1; i--){
+        string *= i;
+      }
+      document.querySelector('input').value = string;
+    }
+    else{ 
+      
+    console.log(e.target)
+    string = string + e.target.innerHTML;
+    document.querySelector('input').value = string;
+      }
+  })
+})
+  </script>
+</body>
+
+</html>

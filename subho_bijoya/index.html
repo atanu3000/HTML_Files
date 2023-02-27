@@ -6,23 +6,32 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>subho_bijoya</title>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="condition.js"></script>
 </head>
 
-<body bgcolor="yellow">
-  <div class="inputData">
-  <form name="myForm"  onsubmit="return valid()" >
-    <label for="fname">First Name :&nbsp; </label>
-    <input type="text" id="fname" name="fname"> <br><br>
-
-    <label for="age">Your Age :&nbsp; </label>
-    <input type="number" id="age" name="age">
-    &nbsp;&nbsp;
-    <input type="submit"  value="submit">
-  </form>
+<body class="h-screen bg-gradient-to-b
+from-green-200 to-green-500">
+  <div class="box-border ">
+    <div class="grid h-screen place-items-center justify-center h-80 ">
+      <div class="grid border-solid border-4 place-items-center border-green-700 h-1/2 p-8 rounded-xl">
+        <div class="inputData">
+          <form name="myForm"  onsubmit="return valid()" >
+            <label for="fname">First Name :&nbsp; </label> <br>
+            <input type="text" id="fname" name="fname" class="rounded p-1 border-700 ring-2 hover:ring-10" placeholder="your name"> <br><br>
+        
+            <label for="age">Your Age :&nbsp; </label> <br>
+            <input type="number" id="age" name="age" class="rounded p-1 border-700 ring-2 hover:ring-10" placeholder="your age">
+            &nbsp;&nbsp; <br><br>
+            <input type="submit"  value="submit" class="rounded p-1 cursor-pointer focus:ring-2 ring-pink-500 hover:ring-10">
+          </form>
+          </div>
+      </div>
+    </div>
   </div>
 
 </body>
 
 </html>
+
